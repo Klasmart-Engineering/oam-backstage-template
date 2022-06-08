@@ -1,0 +1,10 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: rds-toolkit
+spec:
+  components:
+    - name: oam-dynamodb-app
+      type: aws-rds
+      properties:
+        name: oam-dynamodb-app

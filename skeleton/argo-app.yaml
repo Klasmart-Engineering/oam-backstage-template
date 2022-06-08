@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: oam-app
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - environment: staging
+      - environment: production
+  template:
+    metadata:
+      name: '{{environment}}-oam-app'
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: true
+      source:
+        repoURL: https://github.com/${{values.destination.owner + "/" + values.destination.repo}}
+        targetRevision: HEAD
+        path: "/oam-example.yaml"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{environment}}'
