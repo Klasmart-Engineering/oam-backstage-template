@@ -19,7 +19,7 @@ spec:
           allowEmpty: true
           prune: true
       source:
-        repoURL: https://github.com/${{values.destination.owner + "/" + values.destination.repo}}
+        repoURL: https://github.com/${{values.owner + "/" + values.repoUrl}}
         targetRevision: HEAD
         path: "/oam-example.yaml"
       destination:

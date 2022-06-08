@@ -55,7 +55,7 @@ spec:
         values:
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}-skeleton
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
 
     - id: publish-oam-backstage-template
@@ -64,7 +64,7 @@ spec:
       input:
         allowedHosts: ["github.com"]
         description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}-skeleton
+        repoUrl: ${{ parameters.repoUrl }}
         sourcePath: ./skeleton
 
     - id: register-oam-template
