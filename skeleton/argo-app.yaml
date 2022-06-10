@@ -19,9 +19,9 @@ spec:
           allowEmpty: true
           prune: true
       source:
-        repoURL: https://github.com/${{values.owner + "/" + values.repoUrl}}
+        repoURL: https://github.com/KL-Engineering/" + values.repoUrl}}
         targetRevision: HEAD
-        path: "/oam-example.yaml"
+        path: "."
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{environment}}'
