@@ -21,10 +21,7 @@ spec:
       source:
         repoURL: https://github.com/KL-Engineering/" + values.repoUrl}}
         targetRevision: HEAD
-        path: "."
-	directory:
-      	  recurse: true
-      	  exclude: './catalog-info.yaml'
+        path: "argo"
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{environment}}'
